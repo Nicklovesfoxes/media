@@ -1,13 +1,3 @@
-const availableFonts = [
-    "'Poppins', sans-serif",
-    "'Merriweather', serif",
-    "'Bebas Neue', sans-serif",
-    "'Courier Prime', monospace",
-    "'Roboto Slab', serif",
-    "Impact, sans-serif",
-    "Georgia, serif"
-];
-
 let currentCardIndex = 0;
 const cards = document.querySelectorAll('.card');
 

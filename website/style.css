@@ -157,7 +157,6 @@ button:active {
     align-items: center;
     justify-content: center;
     box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
 }
 
 .fact-box {

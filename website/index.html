@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Argument</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Merriweather:ital,wght@0,700;1,400&family=Bebas+Neue&family=Courier+Prime:wght@700&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header id="intro-card" class="card active">
+            <h1>The Illusion of Choice</h1>
+            <p class="subtitle">How Media Influence Shapes Our Democracy</p>
+            <button class="btn-primary" onclick="nextCard()">Start the Journey</button>
+        </header>
+
+        <!-- Argument Point 1 -->
+        <section class="card hidden">
+            <h2>Media & Democracy</h2>
+            <p>The press should inform the people so they can vote for what's best. But when powerful actors manipulate media to change the tone and guide public opinion, democracy is threatened.</p>
+            <div class="illustration">🗳️</div>
+            <button class="btn-secondary" onclick="nextCard()">Who controls it?</button>
+        </section>
+
+        <!-- Argument Point 2 -->
+        <section class="card hidden">
+            <h2>History & Elites</h2>
+            <p>Operation Mockingbird showed the CIA using journalists for propaganda. Today, wealthy elites and interest groups can drown out the average citizen's voice, making the US look more like an oligarchy.</p>
+            <div class="illustration">🏛️</div>
+            <button class="btn-secondary" onclick="nextCard()">How do they do it?</button>
+        </section>
+
+        <!-- Argument Point 3 -->
+        <section class="card hidden">
+            <h2>Psychological Tactics</h2>
+            <p>Media uses psychological tactics to shape norms over time. By repeatedly showing a "majority" opinion, they can override individual beliefs and manufacture consent.</p>
+            <div class="illustration">🧠</div>
+            <button class="btn-secondary" onclick="nextCard()">Try the Experiment</button>
+        </section>
+
+        <!-- The Spin Room Intro -->
+        <section class="card hidden">
+            <h2>The Spin Room</h2>
+            <p>Welcome to the Spin Room. Here, facts are optional, and framing is everything. Let's see how the same story changes shape.</p>
+            <div class="illustration">🌪️</div>
+            <button class="btn-secondary" onclick="nextCard()">Enter Spin Room</button>
+        </section>
+
+        <!-- Spin Example 1: Economy -->
+        <section class="card hidden">
+            <h3>Topic: The Economy</h3>
+            <p class="fact-box">FACT: GDP grew by 1% this quarter.</p>
+            
+            <div class="spin-display" id="spin-display-1">
+                <em>Choose a lens...</em>
+            </div>
+
+            <div class="spin-controls">
+                <button class="btn-spin" onclick="spinHeadline(1, 'positive')">The Cheerleader</button>
+                <button class="btn-spin" onclick="spinHeadline(1, 'negative')">The Doomsayer</button>
+            </div>
+            <button class="btn-secondary" style="margin-top: 20px;" onclick="nextCard()">Next Topic</button>
+        </section>
+
+        <!-- Spin Example 2: Crime -->
+        <section class="card hidden">
+            <h3>Topic: Public Safety</h3>
+            <p class="fact-box">FACT: Overall crime is down 2%, but theft is up 1%.</p>
+            
+            <div class="spin-display" id="spin-display-2">
+                <em>Choose a lens...</em>
+            </div>
+
+            <div class="spin-controls">
+                <button class="btn-spin" onclick="spinHeadline(2, 'fear')">The Alarmist</button>
+                <button class="btn-spin" onclick="spinHeadline(2, 'calm')">The Pacifier</button>
+            </div>
+            <button class="btn-secondary" style="margin-top: 20px;" onclick="nextCard()">Next Topic</button>
+        </section>
+
+        <!-- Spin Example 3: Politics -->
+        <section class="card hidden">
+            <h3>Topic: New Legislation</h3>
+            <p class="fact-box">FACT: The bill passed with 55% of the vote.</p>
+            
+            <div class="spin-display" id="spin-display-3">
+                <em>Choose a lens...</em>
+            </div>
+
+            <div class="spin-controls">
+                <button class="btn-spin" onclick="spinHeadline(3, 'populist')">The Populist</button>
+                <button class="btn-spin" onclick="spinHeadline(3, 'elite')">The Skeptic</button>
+            </div>
+            <button class="btn-secondary" style="margin-top: 20px;" onclick="nextCard()">Next Topic</button>
+        </section>
+
+        <!-- Spin Example 4: Technology -->
+        <section class="card hidden">
+            <h3>Topic: Automation</h3>
+            <p class="fact-box">FACT: Factory X installed robots; 500 roles were automated.</p>
+            
+            <div class="spin-display" id="spin-display-4">
+                <em>Choose a lens...</em>
+            </div>
+
+            <div class="spin-controls">
+                <button class="btn-spin" onclick="spinHeadline(4, 'tech')">The Futurist</button>
+                <button class="btn-spin" onclick="spinHeadline(4, 'labor')">The Unionist</button>
+            </div>
+            <button class="btn-secondary" style="margin-top: 20px;" onclick="nextCard()">Next Topic</button>
+        </section>
+
+        <!-- Spin Example 5: Social -->
+        <section class="card hidden">
+            <h3>Topic: Local Protest</h3>
+            <p class="fact-box">FACT: 100 people gathered at City Hall.</p>
+            
+            <div class="spin-display" id="spin-display-5">
+                <em>Choose a lens...</em>
+            </div>
+
+            <div class="spin-controls">
+                <button class="btn-spin" onclick="spinHeadline(5, 'support')">The Ally</button>
+                <button class="btn-spin" onclick="spinHeadline(5, 'dismiss')">The Critic</button>
+            </div>
+            <button class="btn-secondary" style="margin-top: 20px;" onclick="nextCard()">The Reality</button>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="card hidden">
+            <h2>The Reality</h2>
+            <p>If public opinion is manufactured, the "thermostat" of democracy is broken. We must be aware that our perceptions might be shaped by those with an agenda, not just reality.</p>
+            
+            <div class="interactive-poll">
+                <p>Does this perspective make sense?</p>
+                <button class="btn-yes" onclick="showResult('yes')">Yes, absolutely!</button>
+                <button class="btn-no" onclick="showResult('no')">I need more info.</button>
+            </div>
+            <p id="result-message" class="hidden"></p>
+            
+            <button class="btn-restart" onclick="restart()">Break the Cycle (Restart)</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

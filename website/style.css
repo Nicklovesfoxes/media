@@ -1,0 +1,285 @@
+:root {
+    --primary-color: #FF0055; /* High saturation Pink */
+    --secondary-color: #00E5FF; /* High saturation Cyan */
+    --bg-color: #FFD700; /* High saturation Yellow */
+    --text-color: #1a1a1a;
+    --card-bg: #ffffff;
+    --font-main: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Prevent scrolling, force interaction */
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    perspective: 1000px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 10px 10px 0px var(--text-color);
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 500px;
+    border: 4px solid var(--text-color);
+}
+
+.card.hidden {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8) rotate(-10deg);
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.card.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    visibility: visible;
+    z-index: 10;
+}
+
+.card.exiting {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--secondary-color);
+    text-shadow: 2px 2px 0px var(--text-color);
+    -webkit-text-stroke: 1px var(--text-color);
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.illustration {
+    font-size: 4rem;
+    margin: 20px 0;
+    animation: bounce 2s infinite;
+}
+
+button {
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    border: 3px solid var(--text-color);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+}
+
+button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px var(--text-color);
+}
+
+button:active {
+    transform: translate(0, 0);
+    box-shadow: 0px 0px 0px var(--text-color);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.btn-yes {
+    background-color: #4CAF50;
+    color: white;
+    margin: 5px;
+}
+
+.btn-no {
+    background-color: #f44336;
+    color: white;
+    margin: 5px;
+}
+
+.btn-restart {
+    background-color: transparent;
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+/* Spin Room Styles */
+.spin-display {
+    background: #f0f0f0;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-family: 'Courier New', Courier, monospace; /* Typewriter/Newspaper feel */
+    font-weight: bold;
+    font-size: 1.4rem;
+    border-left: 10px solid var(--primary-color);
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.fact-box {
+    background: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    font-family: 'Courier Prime', monospace;
+}
+
+/* Tone Styles */
+.tone-positive {
+    font-family: 'Poppins', sans-serif;
+    color: #2E7D32; /* Green */
+    border-left-color: #2E7D32;
+    background: #E8F5E9;
+}
+
+.tone-negative {
+    font-family: 'Merriweather', serif;
+    color: #C62828; /* Red */
+    border-left-color: #C62828;
+    background: #FFEBEE;
+    font-style: italic;
+}
+
+.tone-fear {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #D50000; /* Bright Red */
+    border-left-color: #D50000;
+    background: #000; /* Black bg for fear */
+    font-size: 2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.tone-calm {
+    font-family: 'Roboto Slab', serif;
+    color: #1565C0; /* Blue */
+    border-left-color: #1565C0;
+    background: #E3F2FD;
+}
+
+.tone-populist {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #EF6C00; /* Orange */
+    border-left-color: #EF6C00;
+    background: #FFF3E0;
+    font-size: 1.8rem;
+}
+
+.tone-elite {
+    font-family: 'Merriweather', serif;
+    color: #455A64; /* Blue Grey */
+    border-left-color: #455A64;
+    background: #ECEFF1;
+    font-size: 1.1rem;
+}
+
+.tone-tech {
+    font-family: 'Courier Prime', monospace;
+    color: #00BCD4; /* Cyan */
+    border-left-color: #00BCD4;
+    background: #212121; /* Dark bg */
+}
+
+.tone-labor {
+    font-family: 'Roboto Slab', serif;
+    color: #5D4037; /* Brown */
+    border-left-color: #5D4037;
+    background: #D7CCC8;
+    font-weight: bold;
+}
+
+.tone-support {
+    font-family: 'Poppins', sans-serif;
+    color: #9C27B0; /* Purple */
+    border-left-color: #9C27B0;
+    background: #F3E5F5;
+}
+
+.tone-dismiss {
+    font-family: 'Arial', sans-serif;
+    color: #616161; /* Grey */
+    border-left-color: #616161;
+    background: #FAFAFA;
+    font-size: 1rem;
+}
+
+.spin-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-spin {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: white;
+    border: 2px solid var(--text-color);
+    border-radius: 10px;
+}
+
+.btn-spin:hover {
+    background: var(--bg-color);
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .card {
+        padding: 20px;
+        width: 85%;
+    }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    p { font-size: 1rem; }
+}
